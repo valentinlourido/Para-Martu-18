@@ -164,6 +164,20 @@ img, video { max-width: 100%; }
   .mini .ti b { font-size: .72rem; }
 }
 
+
+@keyframes memoryIn{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}\n/* Final: recuerdos Polaroid alrededor de la foto de la infancia */
+.memory-collage{position:relative;width:min(650px,96vw);height:560px;margin:20px auto 28px;isolation:isolate}
+.memory-polaroid{position:absolute;width:clamp(105px,21vw,150px);margin:0;padding:7px 7px 0;background:#f4e9e0;border:1px solid #d7b98a;border-radius:3px;box-shadow:0 12px 28px #08000688;z-index:1}
+.memory-polaroid .pi{aspect-ratio:3/4;overflow:hidden;background:#32101b}
+.memory-polaroid img{display:block;width:100%;height:100%;object-fit:cover}
+.memory-polaroid figcaption{height:34px;display:flex;align-items:center;justify-content:center;text-align:center;color:#6a2939;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.68rem,2vw,.9rem);line-height:1.05}
+.mp1{left:3%;top:5%;transform:rotate(-9deg)}.mp2{left:24%;top:0;transform:rotate(5deg)}.mp3{right:24%;top:0;transform:rotate(-4deg)}.mp4{right:3%;top:7%;transform:rotate(8deg)}
+.mp5{left:3%;bottom:5%;transform:rotate(7deg)}.mp6{left:24%;bottom:0;transform:rotate(-5deg)}.mp7{right:24%;bottom:0;transform:rotate(5deg)}.mp8{right:3%;bottom:5%;transform:rotate(-7deg)}
+.child-cutout-wrap{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(205px,43vw,300px);height:82%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;pointer-events:none}
+.child-cutout{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 8px 9px #10040b66)}
+.child-cutout-wrap span{position:absolute;bottom:2%;font-family:'Cormorant Garamond',serif;font-style:italic;color:#f4e4d7;font-size:1rem;text-shadow:0 2px 6px #21050e}
+.final-note{max-width:520px;margin:0 auto 18px}
+@media(max-width:600px){.memory-collage{width:100%;height:430px;margin:16px auto 20px}.memory-polaroid{width:clamp(78px,24vw,112px);padding:5px 5px 0}.memory-polaroid figcaption{height:27px;font-size:.68rem}.mp1{left:0;top:7%}.mp2{left:22%;top:0}.mp3{right:22%;top:0}.mp4{right:0;top:7%}.mp5{left:0;bottom:4%}.mp6{left:22%;bottom:0}.mp7{right:22%;bottom:0}.mp8{right:0;bottom:4%}.child-cutout-wrap{width:clamp(160px,46vw,220px);height:78%}.child-cutout{object-fit:contain}.finalh{font-size:clamp(2.8rem,12vw,4.2rem)}}
 </style>
 </head>
 <body>
@@ -239,10 +253,21 @@ img, video { max-width: 100%; }
  <button class="vault" data-go="7"><span>Una última cosita ✦</span></button>
 </section>
 <section class="stage" id="s7">
- <div class="heartbox" id="heartbox"><div class="mos" id="mos"><img style="--k:0" src="fotos/06.jpeg" alt=""><img style="--k:1" src="fotos/19.jpeg" alt=""><img style="--k:2" src="fotos/12.jpeg" alt=""><img style="--k:3" src="fotos/13.jpeg" alt=""><img style="--k:4" src="fotos/05.jpeg" alt=""><img style="--k:5" src="fotos/20.jpeg" alt=""><img style="--k:6" src="fotos/01.jpeg" alt=""><img style="--k:7" src="fotos/21.jpeg" alt=""><img style="--k:8" src="fotos/16.jpeg" alt=""><img style="--k:9" src="fotos/22.jpeg" alt=""><img style="--k:10" src="fotos/08.jpeg" alt=""><img style="--k:11" src="fotos/04.jpeg" alt=""><img style="--k:12" src="fotos/14.jpeg" alt=""><img style="--k:13" src="fotos/17.jpeg" alt=""><img style="--k:14" src="fotos/07.jpeg" alt=""><img style="--k:15" src="fotos/18.jpeg" alt=""><img style="--k:16" src="fotos/03.jpeg" alt=""><img style="--k:17" src="fotos/15.jpeg" alt=""><img style="--k:18" src="fotos/09.jpeg" alt=""><img style="--k:19" src="fotos/11.jpeg" alt=""><img style="--k:20" src="fotos/10.jpeg" alt=""><img style="--k:21" src="fotos/02.jpeg" alt=""><img style="--k:22" src="fotos/19.jpeg" alt=""><img style="--k:23" src="fotos/12.jpeg" alt=""><img style="--k:24" src="fotos/13.jpeg" alt=""></div><svg class="ln" viewBox="0 0 1 1" preserveAspectRatio="none"><path d="M0.5 1C0.1 0.7 0 0.5 0 0.3C0 0.12 0.13 0 0.27 0C0.4 0 0.47 0.07 0.5 0.16C0.53 0.07 0.6 0 0.73 0C0.87 0 1 0.12 1 0.3C1 0.5 0.9 0.7 0.5 1Z" fill="none" stroke="url(#hg)" stroke-width="0" vector-effect="non-scaling-stroke"></path></svg></div>
- <p class="eyebrow">✦ Para mi persona favorita ✦</p>
- <h2 class="finalh" id="fh">Feliz 18,<em>mi amor</em></h2>
- <p class="sub">Gracias por existir, por elegirme y por hacer que tantos días sean más lindos. Ojalá pudiera hacerte sentir, aunque sea un poquito, todo lo que significás para mí.</p>
+ <p class="eyebrow">✦ Nuestra historia ✦</p>
+ <h2 class="finalh" id="fh">Desde chiquitos,<em>de la mano</em></h2>
+ <p class="sub">Y mirá dónde estamos ahora… qué lindo que la vida nos haya vuelto a juntar.</p>
+ <div class="memory-collage">
+  <figure class="memory-polaroid mp1"><div class="pi"><img src="fotos/06.jpeg" alt=""></div><figcaption>Un recuerdo nuestro ♡</figcaption></figure>
+  <figure class="memory-polaroid mp2"><div class="pi"><img src="fotos/19.jpeg" alt=""></div><figcaption>Vos y yo</figcaption></figure>
+  <figure class="memory-polaroid mp3"><div class="pi"><img src="fotos/12.jpeg" alt=""></div><figcaption>Mi persona favorita</figcaption></figure>
+  <figure class="memory-polaroid mp4"><div class="pi"><img src="fotos/13.jpeg" alt=""></div><figcaption>Siempre vos</figcaption></figure>
+  <figure class="memory-polaroid mp5"><div class="pi"><img src="fotos/05.jpeg" alt=""></div><figcaption>Qué suerte encontrarte</figcaption></figure>
+  <figure class="memory-polaroid mp6"><div class="pi"><img src="fotos/20.jpeg" alt=""></div><figcaption>Nosotros ♡</figcaption></figure>
+  <figure class="memory-polaroid mp7"><div class="pi"><img src="fotos/01.jpeg" alt=""></div><figcaption>De la mano</figcaption></figure>
+  <figure class="memory-polaroid mp8"><div class="pi"><img src="fotos/21.jpeg" alt=""></div><figcaption>Y que sean muchos más</figcaption></figure>
+  <div class="child-cutout-wrap"><img class="child-cutout" src="fotos/nosotros-recorte.png" alt="Nosotros de chicos, agarrados de la mano"><span>Desde el principio ♡</span></div>
+ </div>
+ <p class="sub final-note">Feliz 18, mi amor. Ojalá sigamos eligiéndonos en todas las versiones de nosotros.</p>
  <div class="row"><button class="vault" data-go="3"><span>Ver los recuerdos otra vez</span></button><button class="vault ghost" data-go="0"><span>Volver al principio ♡</span></button></div>
 </section>
 </main>
