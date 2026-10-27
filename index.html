@@ -98,8 +98,8 @@ input[type=range]::-moz-range-thumb{width:12px;height:12px;border:0;border-radiu
 .letter p.in{opacity:1;translate:0 0}.letter .sign{color:var(--rose);font-size:1.8rem;margin:24px 0 0;font-style:italic}
 /* finale */
 .heartbox{position:relative;width:min(340px,76vw);aspect-ratio:1/.92;margin:0 auto 16px;animation:beat 2.6s ease-in-out infinite;filter:drop-shadow(0 0 30px #c4476a66)}
-.heartbox .mos{position:absolute;inset:0;overflow:hidden;clip-path:url(#hc);-webkit-clip-path:url(#hc);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr));gap:1px}
-.mos img{width:100%;height:100%;min-width:0;min-height:0;object-fit:cover;object-position:center;display:block;opacity:0;animation:mo .8s forwards;animation-delay:calc(var(--k)*35ms + .15s)} @media(max-width:600px){.heartbox{width:min(340px,88vw);}.mos{gap:0!important}.mos img{object-fit:contain;background:rgba(22,2,9,.82);}}
+.heartbox .mos{position:absolute;inset:0;overflow:hidden;-webkit-clip-path:url(#hc);clip-path:url(#hc);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr));gap:1px;transform:translateZ(0);-webkit-transform:translateZ(0)}
+.mos img{width:100%;height:100%;min-width:0;min-height:0;object-fit:cover;object-position:center;display:block;opacity:0;animation:mo .8s forwards;animation-delay:calc(var(--k)*35ms + .15s);background:transparent} @media(max-width:600px){.heartbox{width:min(340px,88vw);}.mos{gap:1px!important;isolation:isolate}.mos img{object-fit:cover;object-position:center;background:transparent;min-width:0;min-height:0;transform:translateZ(0);-webkit-transform:translateZ(0)}}
 @keyframes mo{to{opacity:1}}
 .heartbox:after{content:"";position:absolute;inset:0;clip-path:url(#hc);-webkit-clip-path:url(#hc);background:linear-gradient(160deg,#d7b98a12,#7a1c3618 60%,#31091425);pointer-events:none}
 .heartbox svg.ln{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:2}
@@ -317,11 +317,11 @@ function setMusicLevel() {
   if (musicGain && audioCtx) {
     try {
       musicGain.gain.cancelScheduledValues(audioCtx.currentTime);
-      musicGain.gain.setTargetAtTime(activeVideo ? Math.min(level, .22) : level, audioCtx.currentTime, .08);
+      musicGain.gain.setTargetAtTime(activeVideo ? Math.min(level, .14) : level, audioCtx.currentTime, .08);
     } catch (e) {}
   } else {
     // No pausar nunca la canción por cambiar de diapositiva o tocar el video.
-    try { audio.volume = activeVideo ? Math.min(level, .22) : level; } catch (e) {}
+    try { audio.volume = activeVideo ? Math.min(level, .14) : level; } catch (e) {}
   }
 }
 function stopVideosExcept(keep = null) {
@@ -335,6 +335,8 @@ function stopVideosExcept(keep = null) {
   setMusicLevel();
 }
 function beginVideo(v) {
+  // El audio del video debe escucharse con claridad; durante el video bajamos la música
+  // de fondo para que las voces se entiendan sin silenciar el video.
   setupAudioMix();
   if (audioCtx && audioCtx.state === 'suspended') {
     audioCtx.resume().catch(() => {});
@@ -381,6 +383,11 @@ $$('.stage').forEach(st => {
     big.classList.add('hid');
     pb.textContent = '❚❚';
     setMusicLevel();
+    // Algunos navegadores móviles pausan el audio de fondo al iniciar otro medio.
+    // Si la música ya había empezado, volver a solicitarla sin tocar el audio del video.
+    if (window.__musicWasStarted && audio.paused) {
+      audio.play().then(() => setMusicLevel()).catch(() => {});
+    }
   });
   const finishVideo = () => {
     if (activeVideo === v) activeVideo = null;
@@ -398,7 +405,10 @@ $$('.stage').forEach(st => {
     }
   };
   sk.oninput = () => { if (v.duration) v.currentTime = sk.value / 1000 * v.duration; };
-  mu.onclick = () => { v.muted = !v.muted; mu.textContent = v.muted ? '🔇' : '🔊'; };
+  mu.onclick = () => {
+    v.muted = !v.muted;
+    mu.textContent = v.muted ? '🔇' : '🔊';
+  };
 });
 audio.addEventListener('play', () => {
   window.__musicWasStarted = true;
@@ -416,7 +426,15 @@ function go(n){stopVideosExcept();stages.forEach((s,i)=>s.classList.toggle('acti
  const st=stages[n];const enteringVideo=st.querySelector('[data-v]');if(enteringVideo){beginVideo(enteringVideo)}else{activeVideo=null;setMusicLevel()}
  st.querySelectorAll('[data-split]').forEach(h=>{if(!h.dataset.done){split(h);h.dataset.done=1}else{h.querySelectorAll('.gc').forEach(c=>{c.style.animation='none';c.offsetHeight;c.style.animation=''})}});
  if(n===3)observe('.pola:not(.in)');if(n===6)observe('#letter p:not(.in)');fx.finale=n===7;
- if(n===7){const m=$('#mos');m.innerHTML=m.innerHTML}}
+ if(n===7){
+   const m=$('#mos');
+   m.querySelectorAll('img').forEach((img,k)=>{
+     img.style.opacity='1';
+     img.style.animationDelay=`${k*20}ms`;
+     if(!img.complete) img.loading='eager';
+     img.addEventListener('error',()=>{img.style.background='transparent';}, {once:true});
+   });
+ }}
 $$('[data-go]').forEach(b=>b.onclick=()=>go(+b.dataset.go));
 $('#gift').onclick=e=>{const b=e.currentTarget;b.classList.add('open');choose(3,true);setTimeout(()=>go(1),750)};
 split($('#s0 .display'));
