@@ -97,11 +97,11 @@ input[type=range]::-moz-range-thumb{width:12px;height:12px;border:0;border-radiu
 .letter p{font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2.7vw,1.4rem);line-height:1.65;color:#f1e1d9;margin:0 0 17px;opacity:0;translate:0 14px;transition:opacity 1s,translate 1s}
 .letter p.in{opacity:1;translate:0 0}.letter .sign{color:var(--rose);font-size:1.8rem;margin:24px 0 0;font-style:italic}
 /* finale */
-.heartbox{position:relative;width:min(340px,76vw);aspect-ratio:1/.92;margin:0 auto 16px;animation:beat 2.6s ease-in-out infinite;filter:drop-shadow(0 0 30px #c4476a66)}
-.heartbox .mos{position:absolute;inset:0;overflow:hidden;-webkit-clip-path:url(#hc);clip-path:url(#hc);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr));gap:1px;transform:translateZ(0);-webkit-transform:translateZ(0)}
-.mos img{width:100%;height:100%;min-width:0;min-height:0;object-fit:cover;object-position:center;display:block;opacity:0;animation:mo .8s forwards;animation-delay:calc(var(--k)*35ms + .15s);background:transparent} @media(max-width:600px){.heartbox{width:min(340px,88vw);}.mos{gap:1px!important;isolation:isolate}.mos img{object-fit:cover;object-position:center;background:transparent;min-width:0;min-height:0;transform:translateZ(0);-webkit-transform:translateZ(0)}}
+.heartbox{position:relative;width:min(340px,86vw);aspect-ratio:1/.92;margin:0 auto 16px;animation:beat 2.6s ease-in-out infinite;filter:drop-shadow(0 0 24px #c4476a55);border:2px solid #d7b98a;border-radius:26px;overflow:hidden;background:#260b14}
+.heartbox .mos{position:absolute;inset:0;overflow:hidden;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr));gap:3px;padding:4px;transform:translateZ(0);-webkit-transform:translateZ(0)}
+.mos img{width:100%;height:100%;min-width:0;min-height:0;object-fit:cover;object-position:center;display:block;opacity:0;animation:mo .8s forwards;animation-delay:calc(var(--k)*35ms + .15s);background:#260b14;border-radius:5px} @media(max-width:600px){.heartbox{width:min(340px,88vw);aspect-ratio:1/.95;border-radius:22px}.heartbox .mos{gap:3px!important;padding:4px;isolation:isolate}.mos img{object-fit:cover;object-position:center;background:#260b14;min-width:0;min-height:0;transform:translateZ(0);-webkit-transform:translateZ(0)}}
 @keyframes mo{to{opacity:1}}
-.heartbox:after{content:"";position:absolute;inset:0;clip-path:url(#hc);-webkit-clip-path:url(#hc);background:linear-gradient(160deg,#d7b98a12,#7a1c3618 60%,#31091425);pointer-events:none}
+.heartbox:after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,#d7b98a08,#7a1c3608 60%,#31091410);pointer-events:none;border-radius:inherit}
 .heartbox svg.ln{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:2}
 @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
 .finalh{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(3.2rem,11vw,6.4rem);line-height:.86;margin:4px 0 18px;color:#f4e4d7;text-shadow:0 0 50px #d7b98a44}
@@ -239,7 +239,7 @@ img, video { max-width: 100%; }
  <button class="vault" data-go="7"><span>Una última cosita ✦</span></button>
 </section>
 <section class="stage" id="s7">
- <div class="heartbox" id="heartbox"><div class="mos" id="mos"><img style="--k:0" src="fotos/06.jpeg" alt=""><img style="--k:1" src="fotos/19.jpeg" alt=""><img style="--k:2" src="fotos/12.jpeg" alt=""><img style="--k:3" src="fotos/13.jpeg" alt=""><img style="--k:4" src="fotos/05.jpeg" alt=""><img style="--k:5" src="fotos/20.jpeg" alt=""><img style="--k:6" src="fotos/01.jpeg" alt=""><img style="--k:7" src="fotos/21.jpeg" alt=""><img style="--k:8" src="fotos/16.jpeg" alt=""><img style="--k:9" src="fotos/22.jpeg" alt=""><img style="--k:10" src="fotos/08.jpeg" alt=""><img style="--k:11" src="fotos/04.jpeg" alt=""><img style="--k:12" src="fotos/14.jpeg" alt=""><img style="--k:13" src="fotos/17.jpeg" alt=""><img style="--k:14" src="fotos/07.jpeg" alt=""><img style="--k:15" src="fotos/18.jpeg" alt=""><img style="--k:16" src="fotos/03.jpeg" alt=""><img style="--k:17" src="fotos/15.jpeg" alt=""><img style="--k:18" src="fotos/09.jpeg" alt=""><img style="--k:19" src="fotos/11.jpeg" alt=""><img style="--k:20" src="fotos/10.jpeg" alt=""><img style="--k:21" src="fotos/02.jpeg" alt=""><img style="--k:22" src="fotos/19.jpeg" alt=""><img style="--k:23" src="fotos/12.jpeg" alt=""><img style="--k:24" src="fotos/13.jpeg" alt=""></div><svg class="ln" viewBox="0 0 1 1" preserveAspectRatio="none"><path d="M0.5 1C0.1 0.7 0 0.5 0 0.3C0 0.12 0.13 0 0.27 0C0.4 0 0.47 0.07 0.5 0.16C0.53 0.07 0.6 0 0.73 0C0.87 0 1 0.12 1 0.3C1 0.5 0.9 0.7 0.5 1Z" fill="none" stroke="url(#hg)" stroke-width="2.5" vector-effect="non-scaling-stroke"></path></svg></div>
+ <div class="heartbox" id="heartbox"><div class="mos" id="mos"><img style="--k:0" src="fotos/06.jpeg" alt=""><img style="--k:1" src="fotos/19.jpeg" alt=""><img style="--k:2" src="fotos/12.jpeg" alt=""><img style="--k:3" src="fotos/13.jpeg" alt=""><img style="--k:4" src="fotos/05.jpeg" alt=""><img style="--k:5" src="fotos/20.jpeg" alt=""><img style="--k:6" src="fotos/01.jpeg" alt=""><img style="--k:7" src="fotos/21.jpeg" alt=""><img style="--k:8" src="fotos/16.jpeg" alt=""><img style="--k:9" src="fotos/22.jpeg" alt=""><img style="--k:10" src="fotos/08.jpeg" alt=""><img style="--k:11" src="fotos/04.jpeg" alt=""><img style="--k:12" src="fotos/14.jpeg" alt=""><img style="--k:13" src="fotos/17.jpeg" alt=""><img style="--k:14" src="fotos/07.jpeg" alt=""><img style="--k:15" src="fotos/18.jpeg" alt=""><img style="--k:16" src="fotos/03.jpeg" alt=""><img style="--k:17" src="fotos/15.jpeg" alt=""><img style="--k:18" src="fotos/09.jpeg" alt=""><img style="--k:19" src="fotos/11.jpeg" alt=""><img style="--k:20" src="fotos/10.jpeg" alt=""><img style="--k:21" src="fotos/02.jpeg" alt=""><img style="--k:22" src="fotos/19.jpeg" alt=""><img style="--k:23" src="fotos/12.jpeg" alt=""><img style="--k:24" src="fotos/13.jpeg" alt=""></div><svg class="ln" viewBox="0 0 1 1" preserveAspectRatio="none"><path d="M0.5 1C0.1 0.7 0 0.5 0 0.3C0 0.12 0.13 0 0.27 0C0.4 0 0.47 0.07 0.5 0.16C0.53 0.07 0.6 0 0.73 0C0.87 0 1 0.12 1 0.3C1 0.5 0.9 0.7 0.5 1Z" fill="none" stroke="url(#hg)" stroke-width="0" vector-effect="non-scaling-stroke"></path></svg></div>
  <p class="eyebrow">✦ Para mi persona favorita ✦</p>
  <h2 class="finalh" id="fh">Feliz 18,<em>mi amor</em></h2>
  <p class="sub">Gracias por existir, por elegirme y por hacer que tantos días sean más lindos. Ojalá pudiera hacerte sentir, aunque sea un poquito, todo lo que significás para mí.</p>
@@ -317,11 +317,11 @@ function setMusicLevel() {
   if (musicGain && audioCtx) {
     try {
       musicGain.gain.cancelScheduledValues(audioCtx.currentTime);
-      musicGain.gain.setTargetAtTime(activeVideo ? Math.min(level, .14) : level, audioCtx.currentTime, .08);
+      musicGain.gain.setTargetAtTime(activeVideo ? Math.min(level, .22) : level, audioCtx.currentTime, .08);
     } catch (e) {}
   } else {
     // No pausar nunca la canción por cambiar de diapositiva o tocar el video.
-    try { audio.volume = activeVideo ? Math.min(level, .14) : level; } catch (e) {}
+    try { audio.volume = activeVideo ? Math.min(level, .22) : level; } catch (e) {}
   }
 }
 function stopVideosExcept(keep = null) {
@@ -363,9 +363,12 @@ function beginVideo(v) {
     });
   }
 }
-$$('.stage').forEach(st => {
+$$('.stage').forEach((st, index) => {
   const v = st.querySelector('[data-v]');
   if (!v) return;
+  // Primer video sin sonido; el segundo conserva las voces originales.
+  v.muted = index === 4;
+
   const big = st.querySelector('.vbig');
   const pb = st.querySelector('[data-vp]');
   const sk = st.querySelector('[data-vs]');
