@@ -97,11 +97,11 @@ input[type=range]::-moz-range-thumb{width:12px;height:12px;border:0;border-radiu
 .letter p{font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2.7vw,1.4rem);line-height:1.65;color:#f1e1d9;margin:0 0 17px;opacity:0;translate:0 14px;transition:opacity 1s,translate 1s}
 .letter p.in{opacity:1;translate:0 0}.letter .sign{color:var(--rose);font-size:1.8rem;margin:24px 0 0;font-style:italic}
 /* finale */
-.heartbox{position:relative;width:min(340px,86vw);aspect-ratio:1/.92;margin:0 auto 16px;animation:beat 2.6s ease-in-out infinite;filter:drop-shadow(0 0 24px #c4476a55);border:2px solid #d7b98a;border-radius:26px;overflow:hidden;background:#260b14}
-.heartbox .mos{position:absolute;inset:0;overflow:hidden;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr));gap:3px;padding:4px;transform:translateZ(0);-webkit-transform:translateZ(0)}
-.mos img{width:100%;height:100%;min-width:0;min-height:0;object-fit:cover;object-position:center;display:block;opacity:0;animation:mo .8s forwards;animation-delay:calc(var(--k)*35ms + .15s);background:#260b14;border-radius:5px} @media(max-width:600px){.heartbox{width:min(340px,88vw);aspect-ratio:1/.95;border-radius:22px}.heartbox .mos{gap:3px!important;padding:4px;isolation:isolate}.mos img{object-fit:cover;object-position:center;background:#260b14;min-width:0;min-height:0;transform:translateZ(0);-webkit-transform:translateZ(0)}}
+.heartbox{position:relative;width:min(340px,76vw);aspect-ratio:1/.92;margin:0 auto 16px;animation:beat 2.6s ease-in-out infinite;filter:drop-shadow(0 0 30px #c4476a66)}
+.heartbox .mos{position:absolute;inset:0;clip-path:url(#hc);display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(5,1fr)}
+.mos img{width:100%;height:100%;object-fit:cover;display:block;opacity:0;animation:mo .8s forwards;animation-delay:calc(var(--k)*70ms + .3s)}
 @keyframes mo{to{opacity:1}}
-.heartbox:after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,#d7b98a08,#7a1c3608 60%,#31091410);pointer-events:none;border-radius:inherit}
+.heartbox:after{content:"";position:absolute;inset:0;clip-path:url(#hc);background:linear-gradient(160deg,#d7b98a33,#7a1c3666 60%,#310914aa);pointer-events:none}
 .heartbox svg.ln{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:2}
 @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
 .finalh{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(3.2rem,11vw,6.4rem);line-height:.86;margin:4px 0 18px;color:#f4e4d7;text-shadow:0 0 50px #d7b98a44}
@@ -164,20 +164,6 @@ img, video { max-width: 100%; }
   .mini .ti b { font-size: .72rem; }
 }
 
-
-@keyframes memoryIn{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}\n/* Final: recuerdos Polaroid alrededor de la foto de la infancia */
-.memory-collage{position:relative;width:min(650px,96vw);height:560px;margin:20px auto 28px;isolation:isolate}
-.memory-polaroid{position:absolute;width:clamp(105px,21vw,150px);margin:0;padding:7px 7px 0;background:#f4e9e0;border:1px solid #d7b98a;border-radius:3px;box-shadow:0 12px 28px #08000688;z-index:1}
-.memory-polaroid .pi{aspect-ratio:3/4;overflow:hidden;background:#32101b}
-.memory-polaroid img{display:block;width:100%;height:100%;object-fit:cover}
-.memory-polaroid figcaption{height:34px;display:flex;align-items:center;justify-content:center;text-align:center;color:#6a2939;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.68rem,2vw,.9rem);line-height:1.05}
-.mp1{left:3%;top:5%;transform:rotate(-9deg)}.mp2{left:24%;top:0;transform:rotate(5deg)}.mp3{right:24%;top:0;transform:rotate(-4deg)}.mp4{right:3%;top:7%;transform:rotate(8deg)}
-.mp5{left:3%;bottom:5%;transform:rotate(7deg)}.mp6{left:24%;bottom:0;transform:rotate(-5deg)}.mp7{right:24%;bottom:0;transform:rotate(5deg)}.mp8{right:3%;bottom:5%;transform:rotate(-7deg)}
-.child-cutout-wrap{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(205px,43vw,300px);height:82%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;pointer-events:none}
-.child-cutout{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 8px 9px #10040b66)}
-.child-cutout-wrap span{position:absolute;bottom:2%;font-family:'Cormorant Garamond',serif;font-style:italic;color:#f4e4d7;font-size:1rem;text-shadow:0 2px 6px #21050e}
-.final-note{max-width:520px;margin:0 auto 18px}
-@media(max-width:600px){.memory-collage{width:100%;height:430px;margin:16px auto 20px}.memory-polaroid{width:clamp(78px,24vw,112px);padding:5px 5px 0}.memory-polaroid figcaption{height:27px;font-size:.68rem}.mp1{left:0;top:7%}.mp2{left:22%;top:0}.mp3{right:22%;top:0}.mp4{right:0;top:7%}.mp5{left:0;bottom:4%}.mp6{left:22%;bottom:0}.mp7{right:22%;bottom:0}.mp8{right:0;bottom:4%}.child-cutout-wrap{width:clamp(160px,46vw,220px);height:78%}.child-cutout{object-fit:contain}.finalh{font-size:clamp(2.8rem,12vw,4.2rem)}}
 </style>
 </head>
 <body>
@@ -206,20 +192,20 @@ img, video { max-width: 100%; }
   </div>
   <div class="tracks" id="tracks"><button class="trk " data-i="0"><img src="https://coverartarchive.org/release/a98fb1a5-6eb4-4ab8-a004-b446e8da4cfe/front-500" alt="Portada de Congratulations (feat. Bilal)"><span><b>Congratulations (feat. Bilal)</b><small>Mac Miller</small></span><span class="eq"><i></i><i></i><i></i></span></button><button class="trk " data-i="1"><img src="https://data.opus3a.com/product_photo/31/319362b5d5e380b9fd1ae6479474da97/2e73e42ea875f73e46a5fcf2b6fe1679_max.jpg" alt="Portada de Futile Devices (Doveman Remix)"><span><b>Futile Devices (Doveman Remix)</b><small>Sufjan Stevens</small></span><span class="eq"><i></i><i></i><i></i></span></button><button class="trk " data-i="2"><img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/90/f6/70/90f6706c-6f0a-16b0-f1e5-8580437c925f/cover.jpg/1000x1000bb.jpg" alt="Portada de Anchor"><span><b>Anchor</b><small>Novo Amor</small></span><span class="eq"><i></i><i></i><i></i></span></button><button class="trk sel" data-i="3"><img src="https://iscale.iheart.com/catalog/album/5901802" alt="Portada de Yellow"><span><b>Yellow</b><small>Coldplay</small></span><span class="eq"><i></i><i></i><i></i></span></button></div>
  </div>
- <button class="vault" data-go="2"><span>Seguir con esta canción ✦</span></button>
+ <button type="button" class="vault" data-go="2"><span>Seguir con esta canción ✦</span></button>
 </section>
 <section class="stage" id="s2">
  <div class="fr a"><img src="fotos/06.jpeg" alt="" style="object-position:50% 75%"></div><div class="fr b"><img src="fotos/19.jpeg" alt="" style="object-position:50% 65%"></div><div class="fr c"><img src="fotos/12.jpeg" alt="" style="object-position:50% 35%"></div><div class="fr d"><img src="fotos/13.jpeg" alt="" style="object-position:50% 55%"></div>
  <p class="eyebrow">✦ Cada foto guarda algo ✦</p>
  <h2 class="display" data-split="">Nuestra<em>historia</em></h2>
  <p class="sub">Desde esos recuerdos de cuando eras chiquita hasta todos los momentos que seguimos sumando. Ojalá pudiéramos guardar cada uno para siempre.</p>
- <button class="vault" data-go="3"><span>Ver los recuerdos ✦</span></button>
+ <button type="button" class="vault" data-go="3"><span>Ver los recuerdos ✦</span></button>
 </section>
 <section class="stage" id="s3">
  <p class="eyebrow">✦ Nuestros recuerdos ✦</p>
  <h2 class="display sm">De chiquita hasta <em style="display:inline">hoy</em></h2>
  <div class="polas" id="polas"><figure class="pola" style="--r:-2deg;--y:72%"><div class="pi"><img loading="lazy" src="fotos/06.jpeg" alt="Ojalá pudiera abrazar a esa nena y contarle todo lo lindo que le esperaba"></div><figcaption>Ojalá pudiera abrazar a esa nena y contarle todo lo lindo que le esperaba</figcaption></figure><figure class="pola" style="--r:1.4deg;--y:68%"><div class="pi"><img loading="lazy" src="fotos/01.jpeg" alt="Hasta en una foto llena de stickers, sos vos"></div><figcaption>Hasta en una foto llena de stickers, sos vos</figcaption></figure><figure class="pola" style="--r:-1deg;--y:45%"><div class="pi"><img loading="lazy" src="fotos/15.jpeg" alt="Qué lindo pensar en todo lo que todavía nos faltaba vivir"></div><figcaption>Qué lindo pensar en todo lo que todavía nos faltaba vivir</figcaption></figure><figure class="pola" style="--r:2deg;--y:45%"><div class="pi"><img loading="lazy" src="fotos/10.jpeg" alt="Incluso en esos días, encontrábamos la forma de estar cerca"></div><figcaption>Incluso en esos días, encontrábamos la forma de estar cerca</figcaption></figure><figure class="pola" style="--r:-1.6deg;--y:35%"><div class="pi"><img loading="lazy" src="fotos/03.jpeg" alt="Hay recuerdos que parecen chiquitos hasta que entendés cuánto significan"></div><figcaption>Hay recuerdos que parecen chiquitos hasta que entendés cuánto significan</figcaption></figure><figure class="pola" style="--r:0.8deg;--y:55%"><div class="pi"><img loading="lazy" src="fotos/13.jpeg" alt="Esa noche me quedó guardada por algo más que la foto"></div><figcaption>Esa noche me quedó guardada por algo más que la foto</figcaption></figure><figure class="pola" style="--r:-2deg;--y:62%"><div class="pi"><img loading="lazy" src="fotos/05.jpeg" alt="No necesitábamos mucho: estar juntos ya hacía especial el momento"></div><figcaption>No necesitábamos mucho: estar juntos ya hacía especial el momento</figcaption></figure><figure class="pola" style="--r:1.4deg;--y:40%"><div class="pi"><img loading="lazy" src="fotos/04.jpeg" alt="Nuestra forma de querernos también está en estas pavadas"></div><figcaption>Nuestra forma de querernos también está en estas pavadas</figcaption></figure><figure class="pola" style="--r:-1deg;--y:35%"><div class="pi"><img loading="lazy" src="fotos/12.jpeg" alt="A veces una foto alcanza para acordarme de cómo me hacés sentir"></div><figcaption>A veces una foto alcanza para acordarme de cómo me hacés sentir</figcaption></figure><figure class="pola" style="--r:2deg;--y:42%"><div class="pi"><img loading="lazy" src="fotos/16.jpeg" alt="Me gusta esta versión de nosotros: simple, cerca y sin hacer nada especial"></div><figcaption>Me gusta esta versión de nosotros: simple, cerca y sin hacer nada especial</figcaption></figure><figure class="pola" style="--r:-1.6deg;--y:60%"><div class="pi"><img loading="lazy" src="fotos/22.jpeg" alt="De esos momentos en los que tenerte al lado ya es suficiente"></div><figcaption>De esos momentos en los que tenerte al lado ya es suficiente</figcaption></figure><figure class="pola" style="--r:0.8deg;--y:28%"><div class="pi"><img loading="lazy" src="fotos/18.jpeg" alt="Con vos puedo hacer el ridículo y sentirme en casa"></div><figcaption>Con vos puedo hacer el ridículo y sentirme en casa</figcaption></figure><figure class="pola" style="--r:-2deg;--y:14%"><div class="pi"><img loading="lazy" src="fotos/02.jpeg" alt="Hasta una salida a comer termina siendo parte de nuestra historia"></div><figcaption>Hasta una salida a comer termina siendo parte de nuestra historia</figcaption></figure><figure class="pola" style="--r:1.4deg;--y:40%"><div class="pi"><img loading="lazy" src="fotos/11.jpeg" alt="Tu concentración cuando hay algo rico enfrente merece una foto"></div><figcaption>Tu concentración cuando hay algo rico enfrente merece una foto</figcaption></figure><figure class="pola" style="--r:-1deg;--y:48%"><div class="pi"><img loading="lazy" src="fotos/14.jpeg" alt="Los planes más simples también se vuelven recuerdos con vos"></div><figcaption>Los planes más simples también se vuelven recuerdos con vos</figcaption></figure><figure class="pola" style="--r:2deg;--y:22%"><div class="pi"><img loading="lazy" src="fotos/17.jpeg" alt="Esta cara tuya me hace reír incluso cuando vuelvo a verla después"></div><figcaption>Esta cara tuya me hace reír incluso cuando vuelvo a verla después</figcaption></figure><figure class="pola" style="--r:-1.6deg;--y:66%"><div class="pi"><img loading="lazy" src="fotos/19.jpeg" alt="Si pudiera guardar un instante para volver a él, elegiría uno así con vos"></div><figcaption>Si pudiera guardar un instante para volver a él, elegiría uno así con vos</figcaption></figure><figure class="pola" style="--r:0.8deg;--y:52%"><div class="pi"><img loading="lazy" src="fotos/20.jpeg" alt="Quiero conocer muchos lugares, pero seguir eligiendo mirarlos con vos"></div><figcaption>Quiero conocer muchos lugares, pero seguir eligiendo mirarlos con vos</figcaption></figure><figure class="pola" style="--r:-2deg;--y:62%"><div class="pi"><img loading="lazy" src="fotos/21.jpeg" alt="No importa dónde estemos: me gusta que seas vos con quien termino el día"></div><figcaption>No importa dónde estemos: me gusta que seas vos con quien termino el día</figcaption></figure><figure class="pola" style="--r:1.4deg;--y:55%"><div class="pi"><img loading="lazy" src="fotos/08.jpeg" alt="Hasta quedarnos dormidos en el auto se convirtió en algo que quiero recordar"></div><figcaption>Hasta quedarnos dormidos en el auto se convirtió en algo que quiero recordar</figcaption></figure><figure class="pola" style="--r:-1deg;--y:30%"><div class="pi"><img loading="lazy" src="fotos/09.jpeg" alt="Verte tranquila también es una de esas cosas que me dan paz"></div><figcaption>Verte tranquila también es una de esas cosas que me dan paz</figcaption></figure><figure class="pola" style="--r:2deg;--y:42%"><div class="pi"><img loading="lazy" src="fotos/07.jpeg" alt="Hay sonrisas que te cambian el día; la tuya hace eso conmigo"></div><figcaption>Hay sonrisas que te cambian el día; la tuya hace eso conmigo</figcaption></figure></div>
- <button class="vault" data-go="4"><span>Un momento nuestro ✦</span></button>
+ <button type="button" class="vault" data-go="4"><span>Un momento nuestro ✦</span></button>
 </section>
 <section class="stage" id="s4">
  <p class="eyebrow">✦ Un pedacito de nosotros ✦</p>
@@ -227,7 +213,7 @@ img, video { max-width: 100%; }
  <div class="cwrap"><div class="amb"></div><div class="cinema glass"><video playsinline="" loop="" preload="metadata" src="videos/recuerdo-amor.mp4" data-v=""></video><button class="vbig" aria-label="Reproducir">▶</button></div></div>
  <div class="vctl glass"><button data-vp="">▶</button><input type="range" min="0" max="1000" value="0" data-vs="" aria-label="Posición del video"><span data-vt="">0:00</span><button data-vm="">🔊</button></div>
  <p class="cap">Me podría quedar mil horas mirando tus ojos, y mil vidas viendo tu sonrisa.</p>
- <button class="vault" data-go="5"><span>Seguir ✦</span></button>
+ <button type="button" class="vault" data-go="5"><span>Seguir ✦</span></button>
 </section>
 <section class="stage" id="s5">
  <p class="eyebrow">✦ Un recuerdo de esos que son nuestros ✦</p>
@@ -235,7 +221,7 @@ img, video { max-width: 100%; }
  <div class="cwrap"><div class="amb"></div><div class="cinema glass"><video playsinline="" preload="metadata" src="videos/momento-playa.mp4" data-v=""></video><button class="vbig" aria-label="Reproducir">▶</button></div></div>
  <div class="vctl glass"><button data-vp="">▶</button><input type="range" min="0" max="1000" value="0" data-vs="" aria-label="Posición del video"><span data-vt="">0:00</span><button data-vm="">🔊</button></div>
  <p class="cap">Y hasta en los días en que estás enojada, seguís siendo mi persona favorita.</p>
- <button class="vault" data-go="6"><span>Hay algo que quiero decirte ✦</span></button>
+ <button type="button" class="vault" data-go="6"><span>Hay algo que quiero decirte ✦</span></button>
 </section>
 <section class="stage" id="s6">
  <p class="eyebrow">✦ Para mi bebé ✦</p>
@@ -250,25 +236,14 @@ img, video { max-width: 100%; }
   <p>Te elegiría una y mil veces más. En esta vida y en todas. Con todo lo que somos.</p>
   <p class="sign">Te amo. ♡</p>
  </article>
- <button class="vault" data-go="7"><span>Una última cosita ✦</span></button>
+ <button type="button" class="vault" data-go="7"><span>Una última cosita ✦</span></button>
 </section>
 <section class="stage" id="s7">
- <p class="eyebrow">✦ Nuestra historia ✦</p>
- <h2 class="finalh" id="fh">Desde chiquitos,<em>de la mano</em></h2>
- <p class="sub">Y mirá dónde estamos ahora… qué lindo que la vida nos haya vuelto a juntar.</p>
- <div class="memory-collage">
-  <figure class="memory-polaroid mp1"><div class="pi"><img src="fotos/06.jpeg" alt=""></div><figcaption>Un recuerdo nuestro ♡</figcaption></figure>
-  <figure class="memory-polaroid mp2"><div class="pi"><img src="fotos/19.jpeg" alt=""></div><figcaption>Vos y yo</figcaption></figure>
-  <figure class="memory-polaroid mp3"><div class="pi"><img src="fotos/12.jpeg" alt=""></div><figcaption>Mi persona favorita</figcaption></figure>
-  <figure class="memory-polaroid mp4"><div class="pi"><img src="fotos/13.jpeg" alt=""></div><figcaption>Siempre vos</figcaption></figure>
-  <figure class="memory-polaroid mp5"><div class="pi"><img src="fotos/05.jpeg" alt=""></div><figcaption>Qué suerte encontrarte</figcaption></figure>
-  <figure class="memory-polaroid mp6"><div class="pi"><img src="fotos/20.jpeg" alt=""></div><figcaption>Nosotros ♡</figcaption></figure>
-  <figure class="memory-polaroid mp7"><div class="pi"><img src="fotos/01.jpeg" alt=""></div><figcaption>De la mano</figcaption></figure>
-  <figure class="memory-polaroid mp8"><div class="pi"><img src="fotos/21.jpeg" alt=""></div><figcaption>Y que sean muchos más</figcaption></figure>
-  <div class="child-cutout-wrap"><img class="child-cutout" src="fotos/nosotros-recorte.png" alt="Nosotros de chicos, agarrados de la mano"><span>Desde el principio ♡</span></div>
- </div>
- <p class="sub final-note">Feliz 18, mi amor. Ojalá sigamos eligiéndonos en todas las versiones de nosotros.</p>
- <div class="row"><button class="vault" data-go="3"><span>Ver los recuerdos otra vez</span></button><button class="vault ghost" data-go="0"><span>Volver al principio ♡</span></button></div>
+ <div class="heartbox" id="heartbox"><div class="mos" id="mos"><img style="--k:0" src="fotos/06.jpeg" alt=""><img style="--k:1" src="fotos/19.jpeg" alt=""><img style="--k:2" src="fotos/12.jpeg" alt=""><img style="--k:3" src="fotos/13.jpeg" alt=""><img style="--k:4" src="fotos/05.jpeg" alt=""><img style="--k:5" src="fotos/20.jpeg" alt=""><img style="--k:6" src="fotos/01.jpeg" alt=""><img style="--k:7" src="fotos/21.jpeg" alt=""><img style="--k:8" src="fotos/16.jpeg" alt=""><img style="--k:9" src="fotos/22.jpeg" alt=""><img style="--k:10" src="fotos/08.jpeg" alt=""><img style="--k:11" src="fotos/04.jpeg" alt=""><img style="--k:12" src="fotos/14.jpeg" alt=""><img style="--k:13" src="fotos/17.jpeg" alt=""><img style="--k:14" src="fotos/07.jpeg" alt=""><img style="--k:15" src="fotos/18.jpeg" alt=""><img style="--k:16" src="fotos/03.jpeg" alt=""><img style="--k:17" src="fotos/15.jpeg" alt=""><img style="--k:18" src="fotos/09.jpeg" alt=""><img style="--k:19" src="fotos/11.jpeg" alt=""><img style="--k:20" src="fotos/10.jpeg" alt=""><img style="--k:21" src="fotos/02.jpeg" alt=""><img style="--k:22" src="fotos/19.jpeg" alt=""><img style="--k:23" src="fotos/12.jpeg" alt=""><img style="--k:24" src="fotos/13.jpeg" alt=""></div><svg class="ln" viewBox="0 0 1 1" preserveAspectRatio="none"><path d="M0.5 1C0.1 0.7 0 0.5 0 0.3C0 0.12 0.13 0 0.27 0C0.4 0 0.47 0.07 0.5 0.16C0.53 0.07 0.6 0 0.73 0C0.87 0 1 0.12 1 0.3C1 0.5 0.9 0.7 0.5 1Z" fill="none" stroke="url(#hg)" stroke-width="2.5" vector-effect="non-scaling-stroke"></path></svg></div>
+ <p class="eyebrow">✦ Para mi persona favorita ✦</p>
+ <h2 class="finalh" id="fh">Feliz 18,<em>mi amor</em></h2>
+ <p class="sub">Gracias por existir, por elegirme y por hacer que tantos días sean más lindos. Ojalá pudiera hacerte sentir, aunque sea un poquito, todo lo que significás para mí.</p>
+ <div class="row"><button type="button" class="vault" data-go="3"><span>Ver los recuerdos otra vez</span></button><button type="button" class="vault ghost" data-go="0"><span>Volver al principio ♡</span></button></div>
 </section>
 </main>
 <div class="mini glass show" id="mini"><img id="mcov" alt="" src="https://iscale.iheart.com/catalog/album/5901802"><div class="ti"><b id="mt">Yellow</b><span id="ma">Coldplay</span></div><button id="mpp" aria-label="Reproducir o pausar"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"></path></svg></button><div class="bar" id="mbar"></div></div>
@@ -296,7 +271,7 @@ const fmt=s=>isFinite(s)?Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(
 const setP=(el,v)=>el.style.setProperty('--p',v+'%');
 function split(el){const out=[];let i=0;el.childNodes.forEach(n=>{const w=document.createElement(n.nodeType===3?'span':n.tagName);if(n.nodeType===3){n.textContent.split(' ').forEach((word,k,arr)=>{if(!word)return;const s=document.createElement('span');s.className='gs';[...word].forEach(ch=>{const c=document.createElement('span');c.className='gc';c.style.setProperty('--i',i++);c.textContent=ch;s.appendChild(c)});out.push(s);if(k<arr.length-1)out.push(document.createTextNode(' '))})}else{w.className=n.className;w.style.cssText=n.style.cssText;[...n.textContent].forEach(ch=>{if(ch===' '){w.appendChild(document.createTextNode(' '));return}const c=document.createElement('span');c.className='gc';c.style.setProperty('--i',i++);c.textContent=ch;w.appendChild(c)});out.push(w)}});el.textContent='';out.forEach(o=>el.appendChild(o))}
 function renderTracks(){$('#tracks').innerHTML=songs.map((s,i)=>`<button class="trk ${i===cur?'sel':''}" data-i="${i}"><img src="${s.c}" alt="Portada de ${s.t}"><span><b>${s.t}</b><small>${s.a}</small></span><span class="eq"><i></i><i></i><i></i></span></button>`).join('');$$('.trk').forEach(b=>b.onclick=()=>choose(+b.dataset.i,true))}
-function choose(i,play){cur=(i+songs.length)%songs.length;const s=songs[cur];audio.src=s.f;audio.volume=$$('.stage [data-v]').some(v=>!v.paused&&!v.ended)?Math.min(Number($('#vol').value)/100,.14):Number($('#vol').value)/100;$('#pcov').src=s.c;$('#pt').textContent=s.t;$('#pa').textContent=s.a;$('#mcov').src=s.c;$('#mt').textContent=s.t;$('#ma').textContent=s.a;$('#mini').classList.add('show');renderTracks();$('#seek').value=0;setP($('#seek'),0);if(play)audio.play().catch(()=>{});ui()}
+function choose(i,play){cur=(i+songs.length)%songs.length;const s=songs[cur];audio.src=s.f;audio.volume=$('#vol').value/100;$('#pcov').src=s.c;$('#pt').textContent=s.t;$('#pa').textContent=s.a;$('#mcov').src=s.c;$('#mt').textContent=s.t;$('#ma').textContent=s.a;$('#mini').classList.add('show');renderTracks();$('#seek').value=0;setP($('#seek'),0);if(play)audio.play().catch(()=>{});ui()}
 function ui(){const p=!audio.paused;$('#pp').innerHTML=p?I.pause:I.play;$('#mpp').innerHTML=p?I.pause:I.play;$('#player').classList.toggle('playing',p);document.body.classList.toggle('playing-on',p)}
 const toggle=()=>audio.paused?audio.play().catch(()=>{}):audio.pause();
 $('#pp').onclick=$('#mpp').onclick=toggle;$('#prev').onclick=()=>choose(cur-1,true);$('#next').onclick=()=>choose(cur+1,true);
@@ -313,156 +288,25 @@ function observe(sel){$$(sel).forEach((el,k)=>{el.dataset.d=(k%4)*90;io.observe(
 /* heart mosaic */
 const mp=['06','19','12','13','05','20','01','21','16','22','08','04','14','17','07','18','03','15','09','11','10','02','19','12','13'];
 $('#mos').innerHTML=mp.map((n,k)=>`<img style="--k:${k}" src="fotos/${n}.jpeg" alt="">`).join('');
-/* Reproducción móvil: mantener la música activa y bajar su ganancia durante el video.
-   La reproducción se solicita al cambiar de diapositiva, acción que viene de un toque del usuario. */
-let activeVideo = null;
-let audioCtx = null, musicGain = null, mediaSource = null;
-function setupAudioMix() {
-  if (audioCtx) return;
-  const AC = window.AudioContext || window.webkitAudioContext;
-  if (!AC) return;
-  try {
-    audioCtx = new AC();
-    mediaSource = audioCtx.createMediaElementSource(audio);
-    musicGain = audioCtx.createGain();
-    musicGain.gain.value = musicLevel();
-    mediaSource.connect(musicGain);
-    musicGain.connect(audioCtx.destination);
-  } catch (e) {
-    audioCtx = null;
-    musicGain = null;
-    mediaSource = null;
-  }
-}
-function musicLevel() {
-  return Math.max(0, Math.min(1, Number($('#vol').value) / 100));
-}
-function setMusicLevel() {
-  const level = musicLevel();
-  if (musicGain && audioCtx) {
-    try {
-      musicGain.gain.cancelScheduledValues(audioCtx.currentTime);
-      musicGain.gain.setTargetAtTime(activeVideo ? Math.min(level, .22) : level, audioCtx.currentTime, .08);
-    } catch (e) {}
-  } else {
-    // No pausar nunca la canción por cambiar de diapositiva o tocar el video.
-    try { audio.volume = activeVideo ? Math.min(level, .22) : level; } catch (e) {}
-  }
-}
-function stopVideosExcept(keep = null) {
-  $$('[data-v]').forEach(v => {
-    if (v !== keep) {
-      try { v.pause(); } catch(e) {}
-      try { v.currentTime = 0; } catch(e) {}
-    }
-  });
-  activeVideo = keep;
-  setMusicLevel();
-}
-function beginVideo(v) {
-  // El audio del video debe escucharse con claridad; durante el video bajamos la música
-  // de fondo para que las voces se entiendan sin silenciar el video.
-  setupAudioMix();
-  if (audioCtx && audioCtx.state === 'suspended') {
-    audioCtx.resume().catch(() => {});
-  }
-  stopVideosExcept(v);
-  activeVideo = v;
-  setMusicLevel();
-
-  // No llamar pause() a la música. Si ya estaba reproduciéndose, se mantiene.
-  // Si todavía no arrancó, intentar iniciarla mientras la navegación aún proviene del toque.
-  if (audio.paused && window.__musicWasStarted) {
-    audio.play().catch(() => {});
-  }
-
-  v.playsInline = true;
-  v.setAttribute('playsinline', '');
-  v.setAttribute('webkit-playsinline', '');
-  const p = v.play();
-  if (p && typeof p.catch === 'function') {
-    p.catch(() => {
-      // iOS puede bloquear autoplay con sonido; no se pausa ni se cambia la canción.
-      if (activeVideo === v) activeVideo = null;
-      setMusicLevel();
-    });
-  }
-}
-$$('.stage').forEach((st, index) => {
-  const v = st.querySelector('[data-v]');
-  if (!v) return;
-  // Primer video sin sonido; el segundo conserva las voces originales.
-  v.muted = index === 4;
-
-  const big = st.querySelector('.vbig');
-  const pb = st.querySelector('[data-vp]');
-  const sk = st.querySelector('[data-vs]');
-  const tm = st.querySelector('[data-vt]');
-  const mu = st.querySelector('[data-vm]');
-  const toggleVideo = () => {
-    if (v.paused || v.ended) beginVideo(v);
-    else { v.pause(); }
-  };
-  big.onclick = pb.onclick = toggleVideo;
-  // No enlazar el toque sobre el video al toggle: en móviles provocaba pausas involuntarias.
-  v.onclick = null;
-  v.addEventListener('play', () => {
-    activeVideo = v;
-    big.classList.add('hid');
-    pb.textContent = '❚❚';
-    setMusicLevel();
-    // Algunos navegadores móviles pausan el audio de fondo al iniciar otro medio.
-    // Si la música ya había empezado, volver a solicitarla sin tocar el audio del video.
-    if (window.__musicWasStarted && audio.paused) {
-      audio.play().then(() => setMusicLevel()).catch(() => {});
-    }
-  });
-  const finishVideo = () => {
-    if (activeVideo === v) activeVideo = null;
-    big.classList.remove('hid');
-    pb.textContent = '▶';
-    setMusicLevel();
-  };
-  v.addEventListener('pause', finishVideo);
-  v.addEventListener('ended', finishVideo);
-  v.ontimeupdate = () => {
-    if (v.duration) {
-      sk.value = v.currentTime / v.duration * 1000;
-      setP(sk, v.currentTime / v.duration * 100);
-      tm.textContent = fmt(v.currentTime);
-    }
-  };
-  sk.oninput = () => { if (v.duration) v.currentTime = sk.value / 1000 * v.duration; };
-  mu.onclick = () => {
-    v.muted = !v.muted;
-    mu.textContent = v.muted ? '🔇' : '🔊';
-  };
-});
-audio.addEventListener('play', () => {
-  window.__musicWasStarted = true;
-  setupAudioMix();
-  if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume().catch(() => {});
-  setMusicLevel();
-});
-audio.addEventListener('pause', () => {
-  // No reiniciar automáticamente si el usuario pausó expresamente desde el reproductor.
-});
-$('#vol').addEventListener('input', () => { setP($('#vol'), $('#vol').value); setMusicLevel(); });
+/* Videos: bajar la música mientras cualquiera de los videos está reproduciéndose y restaurarla al pausar o terminar. */
+const musicLevel=()=>Number($('#vol').value)/100;
+function duckMusic(){audio.volume=Math.min(musicLevel(),.16)}
+function restoreMusic(){audio.volume=musicLevel()}
+$$('.stage').forEach(st=>{const v=st.querySelector('[data-v]');if(!v)return;const big=st.querySelector('.vbig'),pb=st.querySelector('[data-vp]'),sk=st.querySelector('[data-vs]'),tm=st.querySelector('[data-vt]'),mu=st.querySelector('[data-vm]');
+ const t=()=>v.paused?v.play().catch(()=>{}):v.pause();big.onclick=pb.onclick=t;v.onclick=t;
+ v.onplay=()=>{big.classList.add('hid');pb.textContent='❚❚';duckMusic()};
+ v.onpause=()=>{big.classList.remove('hid');pb.textContent='▶';restoreMusic()};
+ v.onended=()=>{big.classList.remove('hid');pb.textContent='▶';restoreMusic()};
+ v.ontimeupdate=()=>{if(v.duration){sk.value=v.currentTime/v.duration*1000;setP(sk,v.currentTime/v.duration*100);tm.textContent=fmt(v.currentTime)}};
+ sk.oninput=()=>{if(v.duration)v.currentTime=sk.value/1000*v.duration};mu.onclick=()=>{v.muted=!v.muted;mu.textContent=v.muted?'🔇':'🔊'}});
+$('#vol').addEventListener('input',()=>{if($$('.stage [data-v]').some(v=>!v.paused))duckMusic()});
 /* navegación */
 const stages=$$('.stage');$('#dots').innerHTML=stages.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('');
-function go(n){stopVideosExcept();stages.forEach((s,i)=>s.classList.toggle('active',i===n));$$('#dots i').forEach((d,i)=>d.classList.toggle('on',i===n));window.scrollTo({top:0});$('#mini').style.visibility=n===1?'hidden':'';
- const st=stages[n];const enteringVideo=st.querySelector('[data-v]');if(enteringVideo){beginVideo(enteringVideo)}else{activeVideo=null;setMusicLevel()}
+function go(n){stages.forEach((s,i)=>s.classList.toggle('active',i===n));$$('#dots i').forEach((d,i)=>d.classList.toggle('on',i===n));window.scrollTo({top:0});$('#mini').style.visibility=n===1?'hidden':'';
+ $$('[data-v]').forEach(v=>v.pause());restoreMusic();const st=stages[n];
  st.querySelectorAll('[data-split]').forEach(h=>{if(!h.dataset.done){split(h);h.dataset.done=1}else{h.querySelectorAll('.gc').forEach(c=>{c.style.animation='none';c.offsetHeight;c.style.animation=''})}});
  if(n===3)observe('.pola:not(.in)');if(n===6)observe('#letter p:not(.in)');fx.finale=n===7;
- if(n===7){
-   const m=$('#mos');
-   m.querySelectorAll('img').forEach((img,k)=>{
-     img.style.opacity='1';
-     img.style.animationDelay=`${k*20}ms`;
-     if(!img.complete) img.loading='eager';
-     img.addEventListener('error',()=>{img.style.background='transparent';}, {once:true});
-   });
- }}
+ if(n===7){const m=$('#mos');m.innerHTML=m.innerHTML}}
 $$('[data-go]').forEach(b=>b.onclick=()=>go(+b.dataset.go));
 $('#gift').onclick=e=>{const b=e.currentTarget;b.classList.add('open');choose(3,true);setTimeout(()=>go(1),750)};
 split($('#s0 .display'));
@@ -477,31 +321,4 @@ function heart(x,y,s,rot,col,a){cx.save();cx.translate(x,y);cx.rotate(rot);cx.gl
 choose(3,false);
 </script>
 
-
-<script>
-/* Fallback robusto para el botón inicial: no depende del reproductor ni de la navegación principal. */
-(function(){
-  function bindGift(){
-    var b=document.getElementById('gift');
-    if(!b || b.dataset.fallbackBound) return;
-    b.dataset.fallbackBound='1';
-    b.addEventListener('click', function(ev){
-      ev.preventDefault();
-      var stages=document.querySelectorAll('.stage');
-      var first=document.getElementById('s0');
-      var next=document.getElementById('s1');
-      if(!next) return;
-      if(first) first.classList.remove('active');
-      next.classList.add('active');
-      document.querySelectorAll('#dots i').forEach(function(dot,i){dot.classList.toggle('on',i===1)});
-      var mini=document.getElementById('mini'); if(mini) mini.style.visibility='hidden';
-      window.scrollTo(0,0);
-      b.classList.add('open');
-      try { var audio=document.getElementById('audio'); if(audio) { audio.play().catch(function(){}); } } catch(e) {}
-    }, true);
-    b.style.position='relative'; b.style.zIndex='1000'; b.style.pointerEvents='auto';
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bindGift); else bindGift();
-})();
-</script>
 </body></html>
